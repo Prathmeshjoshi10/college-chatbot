@@ -1,0 +1,121 @@
+{
+  "college_info": {
+    "name": "Sample College",
+    "established": 1985,
+    "location": "123 College Avenue, Sample City, State 12345",
+    "website": "https://www.samplecollege.edu",
+    "contact": {
+      "phone": "+1-123-456-7890",
+      "email": "info@samplecollege.edu"
+    },
+    "description": "Sample College is a premier educational institution dedicated to providing high-quality education in various fields. Founded in 1985, the college has grown to become a leading center for academic excellence and innovation."
+  },
+  "admissions": {
+    "application_deadline": {
+      "fall": "April 15",
+      "spring": "November 15"
+    },
+    "requirements": [
+      "Completed application form",
+      "High school transcripts",
+      "SAT/ACT scores",
+      "Letters of recommendation",
+      "Personal statement"
+    ],
+    "application_fee": "$50",
+    "admission_process": "The admission process at Sample College is competitive and holistic. We evaluate each applicant based on academic achievement, extracurricular activities, personal essays, and letters of recommendation. The admissions committee looks for students who demonstrate intellectual curiosity, leadership potential, and a commitment to community service."
+  },
+  "fees_and_financial_aid": {
+    "tuition": {
+      "undergraduate": "$25,000 per year",
+      "graduate": "$30,000 per year"
+    },
+    "housing": "$10,000 per year",
+    "meal_plan": "$5,000 per year",
+    "books_and_supplies": "$1,200 per year",
+    "scholarships": [
+      {
+        "name": "Merit Scholarship",
+        "amount": "Up to $15,000 per year",
+        "eligibility": "GPA of 3.5 or higher"
+      },
+      {
+        "name": "Leadership Scholarship",
+        "amount": "Up to $10,000 per year",
+        "eligibility": "Demonstrated leadership experience"
+      },
+      {
+        "name": "Community Service Scholarship",
+        "amount": "Up to $8,000 per year",
+        "eligibility": "Significant community service experience"
+      }
+    ],
+    "financial_aid_info": "Sample College is committed to making education affordable for all students. We offer a variety of financial aid options, including scholarships, grants, work-study programs, and loans. Our financial aid office works with each student to create a personalized financial aid package."
+  },
+  "academics": {
+    "schools_and_departments": [
+      {
+        "name": "School of Arts and Sciences",
+        "departments": ["English", "Mathematics", "Physics", "Chemistry", "Biology", "History", "Psychology", "Sociology"]
+      },
+      {
+        "name": "School of Business",
+        "departments": ["Accounting", "Finance", "Marketing", "Management", "International Business"]
+      },
+      {
+        "name": "School of Engineering",
+        "departments": ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Civil Engineering"]
+      },
+      {
+        "name": "School of Education",
+        "departments": ["Elementary Education", "Secondary Education", "Special Education", "Educational Leadership"]
+      }
+    ],
+    "degrees_offered": ["Bachelor's", "Master's", "Doctoral"],
+    "popular_majors": ["Computer Science", "Business Administration", "Psychology", "Biology", "Engineering"],
+    "student_faculty_ratio": "15:1",
+    "academic_calendar": "Semester-based"
+  },
+  "campus_life": {
+    "housing": {
+      "dorm_types": ["Traditional dormitories", "Apartment-style housing", "Suite-style housing"],
+      "housing_guarantee": "Housing is guaranteed for first-year students"
+    },
+    "dining": {
+      "meal_plans": ["Unlimited", "15 meals per week", "10 meals per week"],
+      "dining_locations": ["Main Dining Hall", "Student Union Food Court", "Campus Café", "Convenience Store"]
+    },
+    "clubs_and_organizations": [
+      "Student Government Association",
+      "Debate Club",
+      "Environmental Club",
+      "International Student Association",
+      "Theater Group",
+      "Music Ensemble",
+      "Volunteer Service Organization",
+      "Various Sports Clubs"
+    ],
+    "athletics": {
+      "sports": ["Basketball", "Football", "Soccer", "Swimming", "Tennis", "Track and Field", "Volleyball"],
+      "athletic_facilities": ["Gymnasium", "Swimming Pool", "Tennis Courts", "Track", "Fitness Center"]
+    },
+    "campus_facilities": {
+      "library": "The main library houses over 500,000 volumes and provides access to numerous digital resources.",
+      "computer_labs": "Multiple computer labs are available across campus with the latest software and technology.",
+      "student_center": "The student center includes lounges, meeting rooms, and recreational spaces.",
+      "health_center": "The health center provides medical services, counseling, and wellness programs."
+    }
+  },
+  "career_services": {
+    "services_offered": [
+      "Career counseling",
+      "Resume and cover letter review",
+      "Interview preparation",
+      "Job and internship search assistance",
+      "Career fairs",
+      "Networking events"
+    ],
+    "internship_opportunities": "Sample College has partnerships with numerous local and national companies to provide internship opportunities for students.",
+    "job_placement_rate": "92% of graduates find employment or enter graduate school within six months of graduation."
+  }
+}
