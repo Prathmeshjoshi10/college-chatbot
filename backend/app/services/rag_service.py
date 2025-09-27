@@ -50,7 +50,7 @@ class RAGService:
         
         # Initialize LLM
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-1.0-pro",
+            model="gemini-1.5-pro",
             google_api_key=api_key,
             temperature=0.2,
             max_output_tokens=1024
