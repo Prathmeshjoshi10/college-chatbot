@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..',
 
 from langchain.schema import Document
 from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 
 def load_processed_documents(input_file: str) -> List[Document]:
     """
@@ -30,24 +30,27 @@ def load_processed_documents(input_file: str) -> List[Document]:
 
 def create_vector_database(documents: List[Document], output_dir: str) -> None:
     """
-    Create a vector database from documents
+    Create a FAISS vector database from documents
     """
     # Initialize embedding model
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
     
-    # Create vector store
-    vector_store = Chroma.from_documents(
+    # Create FAISS vector store
+    vector_store = FAISS.from_documents(
         documents=documents,
-        embedding=embeddings,
-        persist_directory=output_dir
+        embedding=embeddings
     )
     
-    # Persist the vector store
-    vector_store.persist()
+    # Create output directory if it doesn't exist
+    os.makedirs(output_dir, exist_ok=True)
     
-    print(f"Created vector database with {len(documents)} documents at {output_dir}")
+    # Save the FAISS index
+    faiss_index_path = os.path.join(output_dir, "faiss_index")
+    vector_store.save_local(faiss_index_path)
+    
+    print(f"Created FAISS vector database with {len(documents)} documents at {output_dir}")
 
 def main():
     parser = argparse.ArgumentParser(description="Load processed data into vector database")

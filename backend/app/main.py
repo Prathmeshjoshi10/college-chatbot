@@ -5,8 +5,8 @@ from typing import List, Optional
 import os
 from dotenv import load_dotenv
 
-# Import our services
-from app.services.rag_service import RAGService
+# Import our services - use simple RAG for Docker
+from app.services.simple_rag_service import SimpleRAGService as RAGService
 
 # Load environment variables
 load_dotenv()

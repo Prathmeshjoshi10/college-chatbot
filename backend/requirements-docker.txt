@@ -1,0 +1,24 @@
+# Docker-optimized requirements with compatible versions
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-dotenv==1.0.0
+python-multipart==0.0.6
+
+# AI/ML stack with compatible versions
+numpy==1.24.3
+torch==2.1.0
+sentence-transformers==2.2.2
+transformers==4.35.0
+
+# Google AI
+google-generativeai==0.3.1
+
+# LangChain with compatible versions
+langchain==0.0.335
+langchain-google-genai==0.0.5
+
+# Vector database
+faiss-cpu==1.7.4
+
+# Data validation
+pydantic==2.4.2

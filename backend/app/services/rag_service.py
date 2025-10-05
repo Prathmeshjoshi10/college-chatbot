@@ -1,19 +1,18 @@
 import os
+import pickle
 from typing import List, Dict, Tuple, Any, Optional
-import chromadb
-from chromadb.utils import embedding_functions
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
-from langchain.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.schema import Document
 from langchain.prompts import PromptTemplate
 
 class RAGService:
     def __init__(self):
-        """Initialize the RAG service with Google Gemini and ChromaDB"""
+        """Initialize the RAG service with Google Gemini and FAISS"""
         # Load API key
         api_key = os.getenv("GOOGLE_API_KEY")
         if not api_key:
@@ -29,6 +28,7 @@ class RAGService:
         
         # Initialize vector store
         self.vector_store_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "vectordb")
+        self.faiss_index_path = os.path.join(self.vector_store_path, "faiss_index")
         
         # Check if vector store exists
         if not os.path.exists(self.vector_store_path):
@@ -38,12 +38,17 @@ class RAGService:
             print("Vector store directory created. Please load documents.")
         else:
             try:
-                # Try to load existing vector store
-                self.vector_store = Chroma(
-                    persist_directory=self.vector_store_path,
-                    embedding_function=self.embeddings
-                )
-                print(f"Loaded vector store with {self.vector_store._collection.count()} documents")
+                # Try to load existing FAISS vector store
+                if os.path.exists(f"{self.faiss_index_path}.faiss") and os.path.exists(f"{self.faiss_index_path}.pkl"):
+                    self.vector_store = FAISS.load_local(
+                        self.faiss_index_path,
+                        self.embeddings,
+                        allow_dangerous_deserialization=True
+                    )
+                    print(f"Loaded FAISS vector store with {self.vector_store.index.ntotal} documents")
+                else:
+                    self.vector_store = None
+                    print("No existing FAISS index found. Please load documents.")
             except Exception as e:
                 print(f"Error loading vector store: {e}")
                 self.vector_store = None
@@ -110,20 +115,19 @@ class RAGService:
         if not documents:
             raise ValueError("No documents provided")
         
-        # Create or update vector store
-        self.vector_store = Chroma.from_documents(
+        # Create FAISS vector store from documents
+        self.vector_store = FAISS.from_documents(
             documents=documents,
-            embedding=self.embeddings,
-            persist_directory=self.vector_store_path
+            embedding=self.embeddings
         )
         
-        # Persist the vector store
-        self.vector_store.persist()
+        # Save the vector store
+        self.vector_store.save_local(self.faiss_index_path)
         
         # Initialize chain
         self._initialize_chain()
         
-        print(f"Loaded {len(documents)} documents into vector store")
+        print(f"Loaded {len(documents)} documents into FAISS vector store")
     
     async def generate_response(self, query: str, chat_history: List[Dict] = None) -> Tuple[str, List[Dict]]:
         """Generate a response to the user's query using RAG"""

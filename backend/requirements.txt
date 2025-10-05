@@ -1,10 +1,24 @@
+# Core FastAPI dependencies
 fastapi==0.104.1
 uvicorn==0.24.0
 python-dotenv==1.0.0
+python-multipart==0.0.6
+
+# AI/ML dependencies with compatible versions
 google-generativeai==0.3.1
+sentence-transformers>=2.3.0
+numpy==1.24.3
+
+# LangChain dependencies
 langchain==0.0.335
 langchain-google-genai==0.0.5
-chromadb==0.4.18
-sentence-transformers==2.2.2
-pydantic==2.4.2
-python-multipart==0.0.6
+
+# Vector database - FAISS with compatible numpy
+faiss-cpu>=1.9.0
+
+# Pydantic - using newer version with pre-compiled wheels
+pydantic>=2.5.0
+
+# Additional dependencies for stability
+torch>=2.0.0
+transformers>=4.30.0
