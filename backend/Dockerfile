@@ -39,10 +39,6 @@ RUN echo '[\
     "metadata": {"source": "fees", "type": "financial"}\
   },\
   {\
-    "content": "Tuition fees: Undergraduate $25,000 per year, Graduate $30,000 per year. Additional costs: Housing $10,000 per year, Meal plan $5,000 per year, Books and supplies $1,200 per year.",\
-    "metadata": {"source": "fees", "type": "financial"}\
-  },\
-  {\
     "content": "Scholarships available: Merit Scholarship up to $15,000 per year for GPA 3.5 or higher, Leadership Scholarship up to $10,000 per year for demonstrated leadership, Community Service Scholarship up to $8,000 per year for significant community service.",\
     "metadata": {"source": "scholarships", "type": "financial_aid"}\
   }\
